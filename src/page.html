@@ -33,6 +33,13 @@
       <h1 id="headline"></h1>
       <p class="temp"><span id="temp"></span><span class="deg">°F</span></p>
       <p class="feels">Feels like <span id="feels"></span></p>
+      <div id="radio" class="radio" hidden>
+        <button id="listen" type="button" class="listen" aria-pressed="false">
+          <span class="listen-icon" aria-hidden="true"></span>
+          <span id="listen-label">Listen to the broadcast</span>
+        </button>
+        <p id="radio-line" class="radio-line"></p>
+      </div>
       <dl id="readings" class="readings"></dl>
     </div>
   </section>

@@ -8,6 +8,8 @@ None of this is connected to real weather. The idea came from a dream. Every dat
 
 The page copies the look of a real National Weather Service forecast: current readings, watches and warnings, a seven-day strip, and an all-caps "area forecast discussion" with `&&` between sections and `$$` at the end.
 
+"Listen to the broadcast" reads the forecast aloud the way NOAA Weather Radio does: three bursts of data tones, the long alert tone if there's a watch or warning, then a flat computer voice. It uses your browser's built-in voices; on a Mac it picks "Fred" when available, the closest match to the real thing.
+
 ## Working on it
 
 ```sh
@@ -25,5 +27,6 @@ Every push to `main` runs the tests, builds the page and publishes it to GitHub 
 - `src/lexicon.js` holds every word list: what falls from the sky, hazards, places, forecasters. Add to these to grow the dream.
 - `src/forecast.js` turns a date into a forecast.
 - `src/sky.js` draws the animated sky window.
+- `src/broadcast.js` writes the radio script; `src/radio.js` plays the tones and the voice.
 - `src/main.js` fills in the page.
 - `src/page.html` and `src/style.css` are the page markup and styles.

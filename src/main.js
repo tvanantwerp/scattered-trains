@@ -1,5 +1,7 @@
 import { forecastFor, todayKey, shiftDate, isDateKey } from './forecast.js'
 import { createSky, silhouette } from './sky.js'
+import { broadcastScript } from './broadcast.js'
+import { createRadio, canBroadcast } from './radio.js'
 
 const $ = (id) => document.getElementById(id)
 
@@ -13,6 +15,27 @@ function el(tag, className, text) {
 
 const sky = createSky($('sky'))
 let current = { dateKey: todayKey(), seed: null }
+let shown = null
+
+const radio = canBroadcast()
+  ? createRadio({
+      onLine: (text) => ($('radio-line').textContent = text),
+      onState: (playing) => {
+        $('listen').setAttribute('aria-pressed', String(playing))
+        $('listen-label').textContent = playing ? 'Stop the broadcast' : 'Listen to the broadcast'
+      },
+    })
+  : null
+
+if (radio) {
+  $('radio').hidden = false
+  $('listen').addEventListener('click', () => {
+    if (radio.playing) return radio.stop()
+    // Real weather radio only sounds the long alert tone for watches and warnings.
+    const withAlert = shown.alerts.some((alert) => alert.level !== 'Advisory')
+    radio.play(broadcastScript(shown), { withAlert })
+  })
+}
 
 function longDate(dateKey) {
   const [y, m, d] = dateKey.split('-').map(Number)
@@ -28,6 +51,9 @@ function maskFor(glyph) {
 
 function render() {
   const f = forecastFor(current.dateKey, current.seed ?? current.dateKey)
+  shown = f
+  // A broadcast belongs to one night; switching nights ends it.
+  if (radio?.playing) radio.stop()
 
   $('place').textContent = f.place
   $('sky-place').textContent = f.place
