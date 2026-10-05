@@ -2,6 +2,8 @@
 
 Forecasts from the Somnolent Weather Service, Weather Forecast Office ZZZ. Tonight: scattered trains.
 
+**See tonight's forecast:** https://tvanantwerp.github.io/scattered-trains/
+
 None of this is connected to real weather. The idea came from a dream. Every date has its own fixed forecast, so the same date always shows the same sky. "Dream another night" rolls a random one.
 
 The page copies the look of a real National Weather Service forecast: current readings, watches and warnings, a seven-day strip, and an all-caps "area forecast discussion" with `&&` between sections and `$$` at the end.
@@ -15,6 +17,8 @@ pnpm build    # writes dist/index.html (open it straight from disk)
 ```
 
 `pnpm build` also writes `dist/fragment.html`, the same page without the outer `<html>` wrapper, for hosts that add their own.
+
+Every push to `main` runs the tests, builds the page and publishes it to GitHub Pages.
 
 ## Where things live
 
