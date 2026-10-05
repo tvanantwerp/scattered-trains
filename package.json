@@ -1,0 +1,14 @@
+{
+  "name": "scattered-trains",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Forecasts from the Somnolent Weather Service, where it is scattered trains tonight.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
+  }
+}

@@ -1,0 +1,60 @@
+<title>Scattered Trains</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=IBM+Plex+Mono:wght@400;500&family=Libre+Franklin:wght@400;500;600&display=swap">
+<style>/* STYLES */</style>
+
+<div class="page">
+  <header class="masthead">
+    <div class="agency">
+      <p class="eyebrow">Somnolent Weather Service</p>
+      <p class="office">Weather Forecast Office <span class="code">ZZZ</span> · Serving <span id="place"></span></p>
+    </div>
+    <p class="issued">
+      <span id="date-long"></span><br>
+      Issued <span id="issued"></span>
+    </p>
+  </header>
+
+  <nav class="controls" aria-label="Choose a night">
+    <button id="prev" type="button">← Previous night</button>
+    <button id="today" type="button">Tonight</button>
+    <button id="next" type="button">Next night →</button>
+    <button id="dream" type="button" class="primary">Dream another night</button>
+  </nav>
+
+  <section class="now" aria-labelledby="headline">
+    <figure class="window">
+      <canvas id="sky" aria-hidden="true"></canvas>
+      <figcaption>Sky over <span id="sky-place"></span></figcaption>
+    </figure>
+    <div class="conditions">
+      <p class="eyebrow">Current conditions</p>
+      <h1 id="headline"></h1>
+      <p class="temp"><span id="temp"></span><span class="deg">°F</span></p>
+      <p class="feels">Feels like <span id="feels"></span></p>
+      <dl id="readings" class="readings"></dl>
+    </div>
+  </section>
+
+  <section id="alerts" class="alerts" aria-label="Watches, advisories and warnings"></section>
+
+  <section class="week" aria-labelledby="week-title">
+    <h2 id="week-title" class="section-title">Seven-day forecast</h2>
+    <ol id="days" class="days"></ol>
+  </section>
+
+  <section class="lower">
+    <article class="bulletin" aria-labelledby="afd-title">
+      <h2 id="afd-title" class="section-title">Area forecast discussion</h2>
+      <pre id="afd" class="afd"></pre>
+    </article>
+    <aside class="almanac" aria-labelledby="almanac-title">
+      <h2 id="almanac-title" class="section-title">Almanac</h2>
+      <dl id="almanac" class="almanac-list"></dl>
+      <p class="disclaimer">These forecasts are not connected to any real weather. Each date has its own fixed forecast. Share the date and others will see the same sky.</p>
+    </aside>
+  </section>
+</div>
+
+<script>/* SCRIPT */</script>
